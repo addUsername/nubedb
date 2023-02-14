@@ -27,13 +27,4 @@ jobs:
           go-version: '1.18'
           os: ${{ matrix.os }}
           arch: ${{ matrix.arch }}
-          instructions:  |-
-            ${{ matrix.env }} \
-              go build \
-                -o "$BIN_PATH" \
-                -trimpath \
-                -tags="${{ matrix.tags }}" \
-                -ldflags="-s -w" \
-                -v \
-                ./...
-                "
+          instructions: ${{ matrix.env }} go build -o "$BIN_PATH" -ldflags="-s -w" -v -trimpath -buildvcs=false

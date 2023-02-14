@@ -30,6 +30,8 @@ jobs:
           instructions:  |-
             ${{ matrix.env }} \
               go build \
+                -o "$BIN_PATH" \
+                -trimpath \
                 -tags="${{ matrix.tags }}" \
                 -ldflags="-s -w" \
                 -v \
